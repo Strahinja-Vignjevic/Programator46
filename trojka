@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int pronalazenje(char* string,char a){
+    int i,b=0;
+    for(i=0;string[i]!='\0';i++){
+        if(string[i]==a){
+            ++b;
+        }
+
+    }
+
+
+    return b;
+}
+int main()
+{
+    char kockica[100];
+    char k;
+    printf("Unesite neku rec: ");
+    gets(kockica);
+    printf("Koje slovo zelite da prebrojite: ");
+    scanf("%c",&k);
+    if(pronalazenje(kockica,k)==0){
+        printf("Nema tih slova u imenu");
+
+    }else printf("U reci ima %i takvih slova!",pronalazenje(kockica,k));
+
+    return 0;
+}
