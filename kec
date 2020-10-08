@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int j,m,n;
+    printf("Unesi nesto od niza: ");
+    scanf("%i",&j);
+    int nizic[j][j];
+    int nizincina[j][j];
+    for(m=0;m<j;m++){
+        for(n=0;n<j;n++){
+         scanf("%i",&nizic[m][n]);
+        }
+    }
+    for(n=0;n<j;n++){
+        for(m=0;m<j;m++){
+           nizincina[n][m]=nizic[m][n];
+        }
+    }
+    for(n=0;n<j;n++){
+        for(m=0;m<j;m++){
+           printf("%i ",nizincina[n][m]);
+        }
+           printf("\n");
+    }
+
+        return 0;
+}
