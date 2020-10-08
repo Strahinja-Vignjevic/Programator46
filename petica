@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,i,b;
+    printf("Unesite koliko niz ima elemenata: ");
+    scanf("%i",&n);
+    int nizolit[n];
+    for(i=0;i<n;i++){
+        scanf("%i",&b);
+        nizolit[i]=b;
+    }
+    int *p= &nizolit[0];
+    printf("Brojevi u nizu koji su deljivi sa 3 su: \n");
+    b=0;
+    for(i=0;i<n;i++){
+        *p= nizolit[i];
+        if(*p%3==0){
+           printf("Broj %i je deljiv sa tri\n",*p);
+            b++;
+        }
+    }
+    if(b==0){
+        printf("Ipak nista od tih brojeva :( ");
+    }
+    return 0;
+}
