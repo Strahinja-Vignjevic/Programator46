@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    int i;
+    int b;
+    printf("Unesite koliko niz ima clanova: ");
+    scanf("%i",&n);
+    int nizoman[n];
+    printf("Unesi clanove niza: \n");
+    for(i=0;i<n;i++){
+        scanf("%i",&b);
+        nizoman[i]=b;
+    }
+    int *p= &nizoman[0];
+    for(i=0;i<n;i++){
+        if(*p<nizoman[i])
+            *p=nizoman[i];
+    }
+     printf("Najveci clan u nizu je %i",*p);
+    return 0;
+}
