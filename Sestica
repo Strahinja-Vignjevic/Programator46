@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+/// zadatak nisam dovrsio ima par gresaka ali nisam hteo da predam prazno
+void kreatius_matricijus(int a,int b){
+    printf("Unesite broj redova matrice: ");
+    scanf("%i",&a);
+    printf("Unesite broj kolona matrice: ");
+    scanf("%i",&b);
+}
+
+void unosilis_matricijis(int **niz,int h){
+        int f,g;
+        printf("Unesite elemente niza: \n");
+        for(f=0;f<h;f++){
+            for(g=0;g<h;g++){
+            scanf("%i",&niz[f][g]);
+            }
+        }
+}
+void ispisulis_matricijis(int **niz, int h){
+    int y,x;
+    for(y=0;y<h;y++){
+            for(x=0;x<h;x++){
+                printf("Niz ti je %i",niz[y][x]);
+            }
+    }
+}
+void sabirulis_matriculis(int** nizina, int**nizona, int h, int e ){
+    int a,b;
+    int pomoc[100][100];
+    for(a=0;a<h;a++){
+        for(b=0;b<e;b++){
+            pomoc[a][b]=nizina[a][b]+nizona[a][b];
+        }
+    }
+    ispisulis_matricijis(pomoc,a);
+}
+int main()
+{
+    int n=0,m=0,j=0,k=0,i;
+     kreatius_matricijus(n,m);
+    int **sabircic;
+    sabircic=malloc(n * sizeof *sabircic);
+    for(i=0;i<n;i++)
+    {
+        sabircic[i]=malloc(m * sizeof * sabircic[i]);
+    }
+     unosilis_matricijis(sabircic,n);
+     ispisulis_matricijis(sabircic,n);
+     kreatius_matricijus(j,k);
+    int **sabircina;
+    sabircina=malloc(j * sizeof *sabircic);
+    for(i=0;i<j;i++)
+    {
+        sabircina[i]=malloc(k * sizeof * sabircina[i]);
+    }
+     unosilis_matricijis(sabircina,j);
+     ispisulis_matricijis(sabircina,j);
+    if(j<n){
+         sabirulis_matriculis(sabircic,sabircina,n,m);
+    }else  sabirulis_matriculis(sabircic,sabircina,j,k);
+    return 0;
+}
