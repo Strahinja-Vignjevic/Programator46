@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main()
+{
+    ///Nedovrsen trenutno mi ne pada na pamet znam da je greska da je petlja beskonacna
+    FILE* fajletina;
+    fajletina = fopen("fajletina.txt","w+");
+    char promenljiva,stringic[100];
+    int a=0,be=0,ce=0;
+    printf("Unesite tekst u datoteku: ");
+    gets(stringic);
+    fseek(fajletina,0,SEEK_SET);
+    fwrite(stringic,1,strlen(stringic),fajletina);
+    printf("Unesite jedan bilo koji karakter: ");
+    scanf("%c",&promenljiva);
+    while (!feof(fajletina)){
+        a=fgetc(fajletina);
+        if(a==promenljiva){
+            be++;
+        }
+    fseek(fajletina,ce,SEEK_CUR);
+    ce++;
+   }
+    printf("U datoteci ima tacno %i takvih karaktera!",be);
+    fclose(fajletina);
+    return 0;
+}
