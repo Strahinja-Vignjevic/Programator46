@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char nesto[100];
+    int i=0;
+    FILE *zuta_strana;
+    zuta_strana = fopen("zuta_strana.txt", "w+");
+    printf("Unesite ime, prezime i broj u dnevniku: ");
+    gets(nesto);
+    fseek(zuta_strana, 0, SEEK_SET);
+    fwrite(nesto, 1, strlen(nesto), zuta_strana);
+    fclose(zuta_strana);
+    return 0;
+}
