@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   /// I ovaj je nedovrsen izvinjavam se ali nisam imao pristup ove nedelje racunaru jer sam bio u srednjoskolskom domu imam samo dva tri sata da sve ovo uradim.
+    FILE *fajlic;
+    FILE *fajlcetina;
+    FILE *maxifajl;
+    char nizic[100];
+    char nizcina[100];
+    char stringic[100];
+    char stringcina[100];
+    char c;
+    printf("Unesite nazive dva fajla (ukljucujuci ekstenziju na primer .txt)");
+    scanf("%s %s", nizic, nizcina);
+    fajlic = fopen(nizic, "w+");
+    fajlcetina = fopen(nizcina, "w+");
+    maxifajl = fopen("maxifajl.txt", "w+");
+    printf("Unesite nesto u prvu datoteku: ");
+    gets(stringic);
+    fseek(nizic, 0, SEEK_SET);
+    fwrite(stringic, 1, strlen(stringic), fajlic);
+    while((c = fgetc(fajlic)) != EOF)
+        fputc(c, maxifajl);
+    printf("Unesite nesto u drugu datoteku: ");
+    gets(stringcina);
+    fseek(fajlcetina, 0, SEEK_SET);
+    fwrite(stringcina, 1, strlen(stringcina), fajlcetina);
+    while((c = fgetc(fajlcetina)) != EOF)
+        fputc(c, maxifajl);
+    return 0;
+}
