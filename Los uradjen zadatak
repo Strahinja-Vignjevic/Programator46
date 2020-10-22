@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef struct narucenija{
+    int gosti[100];
+    char pizza[20];
+    double prosek[100];
+}Narucenija;
+typedef struct porudzbenija{
+    double parcadi[100];
+    int potreba[100];
+    char piza[20];
+}Porudzbenija;
+int main()
+{
+    struct narucenija lol;
+    struct porudzbenija rofl;
+    int i,j,k,l;
+    printf("Unesite ime fajla: ");
+    char imenjak[100];
+    gets(imenjak);
+    FILE* fakti=fopen(imenjak,"r+");
+    fseek(fakti,0,SEEK_SET);
+    fread(lol.gosti,4,1,fakti);
+    fread(lol.pizza,1,20,fakti);
+    fread(lol.prosek,8,1,fakti);
+    i=lol.gosti[0];
+    j=lol.prosek[0];
+    rofl.parcadi[0]=i * j;
+    k=rofl.parcadi[0];
+    rofl.potreba[0]=k/8;
+    l=rofl.potreba;
+    if(k%8!=0);{
+    l+=1;
+    rofl.parcadi[0]=l;
+    }
+    strcpy(rofl.piza,lol.pizza);
+    FILE* novo=fopen("laganjezi.txt","r+");
+    fwrite(rofl.parcadi,8,1,novo);
+    fwrite(rofl.potreba,4,1,novo);
+    fwrite(rofl.piza,1,20,novo);
+    fclose(fakti);
+    fclose(novo);
+    return 0;
+}
