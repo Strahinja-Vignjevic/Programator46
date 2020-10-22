@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n=0;
+    printf("Dajte ime fajlu: ");
+    char imenjak[100];
+    gets(imenjak);
+    FILE* fakti= fopen(imenjak,"r+");
+    char lagano[100];
+    while(lagano[n]!=EOF){
+        lagano[n]=getc(fakti);
+        if(lagano[n] >= 'a' && lagano[n] <= 'z'){
+            lagano[n]-=32;
+        }
+        n++;
+    }
+    n=0;
+    while(lagano[n]!=EOF){
+       fputc(lagano[n],fakti);
+       n++;
+    }
+    fclose(fakti);
+    return 0;
+}
