@@ -17,6 +17,7 @@ int main()
         n++;
     }
     n=0;
+    fseek(fakti,0,SEEK_SET);
     while(lagano[n]!=EOF){
        fputc(lagano[n],fakti);
        n++;
