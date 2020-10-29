@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    printf("Unesite duzinu niza: \n");
+    int i,j=0,k;
+    do{
+    scanf("%i", &i);
+    }while(i<=0);
+
+
+    int *nizic =(int*) malloc(k * sizeof(int));
+    if(nizic==NULL){
+            printf("memorije bez\n");
+            return 1;
+    }
+    for(i = 0; k < i; ++k){
+        printf("Unesite %i. element: ", k + 1);
+        scanf("%i", nizic+k);
+        j=j+nizic[k];
+    }
+    printf("\nProsecna vrednost je: %f",(float)j/n);
+    free(nizic);
+    return 0;
+
+}
