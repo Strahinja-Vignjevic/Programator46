@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int* fibonac(int* broj){
+    int *nizcina = (int*) malloc(*broj+1 * sizeof(int));
+    if(nizcina == NULL){
+        printf("Nemoguce zauzimanje memorije. ");
+        return 1;
+    }
+    *nizcina = 0;
+    *(nizcina+1) = 1;
+    for(unsigned int j = 2; j < *broj+10; j++){
+        if((*(nizcina+j-1) + *(nizcina+j-2)) >= *broj){
+            *broj = j;
+            break;
+        }
+        *(nizcina+j) = *(nizcina+j-1) + *(nizcina+j-2);
+    }
+    return niz;
+}
+
+void ispisNiza(int *nizic, int elemtar){
+    for(unsigned int i = 0;i < elementar;i++){
+        printf("%d \n", *(nizic+i));
+    }
+}
+
+int main()
+{
+    int *p;
+    int i;
+    p = &i;
+    printf("Unesite broj: ");
+    scanf("%d", p);
+    while(*p <= 0){
+        printf("Uneli ste broj koji je manji ili jednak nuli. Unesite ponovo: ");
+        scanf("%d", p);
+    }
+    if(*p == 1){
+        printf("0");
+    }
+    else{
+        int* nizic = fibonac(p);
+        ispisNiza(niz,broj);
+        free(niz);
+    }
+}
