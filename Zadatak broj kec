@@ -1,0 +1,16 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int j,k=1,i;
+    cout << "Unesite zeljeni broj: ";
+    cin >> j;
+    for(i=1;i<=j;i++)
+    {
+        k*=i;
+    }
+    cout << "Faktorijel unesenog broja je:" << k;
+    return 0;
+}
