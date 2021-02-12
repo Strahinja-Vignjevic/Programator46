@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;class Osoba{
+private:
+    int danRodjenja;
+    int mesecRodjenja;
+    int godinaRodjenja;
+public:
+    Osoba(){
+        danRodjenja = 8;
+        mesecRodjenja = 12;
+        godinaRodjenja = 1997;
+    }
+    Osoba(int a,int b,int c){
+        danRodjenja = a;
+        mesecRodjenja = b;
+        godinaRodjenja = c;
+    }
+    int getDanRodjenja(){return danRodjenja;}
+    int getMesecRodjenja(){return mesecRodjenja;}
+    int getGodinaRodjenja(){return godinaRodjenja;}
+    void setDanRodjenja(int a){danRodjenja = a;}
+    void setMesecRodjenja(int b){mesecRodjenja=b;}
+    void setGodinaRodjenja(int c){godinaRodjenja = c;}
+    bool isValid(int a,int b,int c){
+        bool pom = true;
+        if(a > 31){
+            pom = false;
+        }
+        else if(b > 12){
+            pom = false;
+        }
+        else if(2020 - c > 130){
+            pom = false;
+        }
+        return pom;
+    }
+};
+int main()
+{
+    Osoba o;
+    Osoba o2(16,11,2003);
+    cout<<"Datum rodjenja osobe (pocetne) je: "<<endl;
+    cout<<o.getDanRodjenja()<<" "<<o.getMesecRodjenja()<<" "<<o.getGodinaRodjenja() <<endl;
+    o.setDanRodjenja(31);
+    o.setMesecRodjenja(12);
+    o.setGodinaRodjenja(2004);
+    cout<<"Datum rodjenja posle setovanja je: "<<endl;
+    cout<<o.getDanRodjenja()<<" "<<o.getMesecRodjenja()<<" "<<o.getGodinaRodjenja() <<endl;
+    if(o.isValid(o.getDanRodjenja(),o.getMesecRodjenja(),o.getGodinaRodjenja())){
+        cout<<"Datum rodjenja je validan !"<<endl;
+    }
+    else{
+        cout<<"Datum rodjenja nije validan!"<<endl;
+    }
+    return 0;
+}
